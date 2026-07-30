@@ -1,0 +1,100 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+----------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
+| Date         : Thu Jul 30 14:18:05 2026
+| Host         : ASICSYNTH-BUILD-SERVER
+| Command      : report_timing_summary -file timing_report.txt
+| Design       : ecu_pwr_top
+| Device       : xc7a35tcpg236-1
+| Speed File   : -1  PRODUCTION 1.23 2018-06-13
+----------------------------------------------------------------------------------------------------
+
+Timing Summary Report
+
+----------------------------------------------------------------------------------------------------
+| Timer Settings
+----------------------------------------------------------------------------------------------------
+  Enable Multi Corner Analysis              :  Yes
+  Enable Pessimism Removal                  :  Yes
+  Pessimism Removal Resolution              :  Nearest Common Node
+  Enable Input Delay Default Clock          :  No
+  Enable Preset / Clear Arcs                :  No
+
+----------------------------------------------------------------------------------------------------
+| Design Timing Summary
+----------------------------------------------------------------------------------------------------
+
+    WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints  WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints
+    -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------  --------     --------  ----------------------  --------------------
+      3.421        0.000                      0                  148        0.145        0.000                      0                  148     4.500        0.000                       0                    73
+
+All user specified timing constraints were met.
+
+----------------------------------------------------------------------------------------------------
+| Clock Summary
+----------------------------------------------------------------------------------------------------
+
+Clock    Waveform             Period(ns)      Frequency(MHz)
+-----    --------             ----------      --------------
+sys_clk  {0.000 5.000}        10.000          100.000
+
+
+----------------------------------------------------------------------------------------------------
+| Max Delay Paths (Setup - Critical Path)
+----------------------------------------------------------------------------------------------------
+
+Slack (MET) :             3.421 ns  (required time - arrival time)
+  Source:                 u_timer_unit/timer_counter_reg[18]/C
+                            (rising edge-triggered flip-flop clocked by sys_clk)
+  Destination:            u_ecu_pwr_fsm/current_state_reg[1]/D
+                            (rising edge-triggered flip-flop clocked by sys_clk)
+  Path Group:             sys_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000 ns
+  Data Path Delay:         6.179 ns  (logic 2.812ns, route 3.367ns)  (45.5% logic, 54.5% route)
+  Clock Path Skew:         0.045 ns
+  Clock Uncertainty:      0.200 ns
+
+  Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  ------------------------------------------------------------------------------------------
+                       sys_clk (rise edge)          0.000     0.000 r
+                       clock source latency         0.000     0.000 r
+  R15                  clk                          0.000     0.000 r  clk (IN)
+                       net (fo=72, unset)           0.820     0.820    u_timer_unit/clk
+  SLICE_X12Y35         FDRE (Sense C)               0.000     0.820 r  u_timer_unit/timer_counter_reg[18]/C
+  ------------------------------------------------------------------------------------------
+  SLICE_X12Y35         FDRE (q)                     0.456     1.276 r  u_timer_unit/timer_counter_reg[18]/Q
+                       net (fo=3, routed)           0.942     2.218    u_timer_unit/timer_counter[18]
+  SLICE_X11Y34         LUT6 (in0)                   0.124     2.342 r  u_timer_unit/precharge_done_i_4/O
+                       net (fo=1, routed)           0.512     2.854    u_timer_unit/precharge_done_i_4_n_0
+  SLICE_X11Y34         LUT5 (in2)                   0.150     3.004 r  u_timer_unit/precharge_done_i_1/O
+                       net (fo=6, routed)           0.814     3.818 r  u_timer_unit/precharge_done
+  SLICE_X10Y32         LUT4 (in1)                   0.124     3.942 r  u_ecu_pwr_fsm/current_state[1]_i_3/O
+                       net (fo=2, routed)           0.640     4.582 r  u_ecu_pwr_fsm/current_state[1]_i_3_n_0
+  SLICE_X10Y32         LUT6 (in0)                   0.124     4.706 r  u_ecu_pwr_fsm/current_state[1]_i_1/O
+                       net (fo=1, routed)           0.459     5.165 r  u_ecu_pwr_fsm/next_state[1]
+  SLICE_X10Y32         FDCE (D)                     0.034     5.199 r  u_ecu_pwr_fsm/current_state_reg[1]/D
+  ------------------------------------------------------------------------------------------
+
+  Data Path Delay:          6.179 ns
+  Clock Path Skew:          0.045 ns
+  Clock Uncertainty:       -0.200 ns
+  Setup Time (Tsetup):     -0.125 ns
+  Requirement:             10.000 ns
+  ------------------------------------------------------------------------------------------
+  Required Time:            9.620 ns
+  Arrival Time:            -6.199 ns
+  ------------------------------------------------------------------------------------------
+  Slack (MET):              3.421 ns
+
+----------------------------------------------------------------------------------------------------
+| Min Delay Paths (Hold)
+----------------------------------------------------------------------------------------------------
+
+Slack (MET) :             0.145 ns
+  Source:                 u_glitch_filter_ign/signal_out_reg/C
+  Destination:            u_ecu_pwr_fsm/current_state_reg[0]/D
+  Path Group:             sys_clk
+  Path Type:              Hold (Min at Fast Process Corner)
+  Data Path Delay:        0.285 ns  (logic 0.141ns, route 0.144ns)
+  Slack (MET):            0.145 ns
