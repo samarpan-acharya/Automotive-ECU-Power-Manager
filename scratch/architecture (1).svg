@@ -1,0 +1,188 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 820" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="ah-gray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8b96ab"/>
+    </marker>
+    <marker id="ah-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#4fb2e8"/>
+    </marker>
+    <marker id="ah-amber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#e0a341"/>
+    </marker>
+  </defs>
+
+  <!-- BACKGROUND -->
+  <rect x="0" y="0" width="1500" height="820" fill="#0b0f19"/>
+
+  <!-- TITLE -->
+  <text x="40" y="34" fill="#f4f6fb" font-size="21" font-weight="700" letter-spacing="0.5">AUTOMOTIVE ECU POWER &amp; STARTUP MANAGER ASIC IP</text>
+  <text x="40" y="55" fill="#7c8aa5" font-size="12" font-weight="600" letter-spacing="1.8">MICRO-ARCHITECTURE DIAGRAM</text>
+  <line x1="40" y1="70" x2="1460" y2="70" stroke="#1e2740" stroke-width="1"/>
+
+  <!-- ============ EXTERNAL INPUTS ============ -->
+  <text x="140" y="112" fill="#7c8aa5" font-size="11" font-weight="700" letter-spacing="1.4" text-anchor="middle">EXTERNAL INPUTS</text>
+
+  <text x="225" y="217" fill="#c9d3e5" font-size="12.5" font-weight="600" text-anchor="end">IGNITION / KEY SENSE</text>
+  <line x1="230" y1="222" x2="290" y2="222" stroke="#4fb2e8" stroke-width="1.6" marker-end="url(#ah-blue)"/>
+
+  <text x="225" y="292" fill="#c9d3e5" font-size="12.5" font-weight="600" text-anchor="end">WAKEUP SIGNALS</text>
+  <line x1="230" y1="297" x2="290" y2="360" stroke="#4fb2e8" stroke-width="1.6" marker-end="url(#ah-blue)"/>
+
+  <text x="225" y="367" fill="#c9d3e5" font-size="12.5" font-weight="600" text-anchor="end">MAIN VBAT (12V)</text>
+  <line x1="230" y1="372" x2="290" y2="500" stroke="#4fb2e8" stroke-width="1.6" marker-end="url(#ah-blue)"/>
+
+  <!-- ============ CORE CONTAINER ============ -->
+  <rect x="260" y="92" width="770" height="668" rx="12" fill="#101625" stroke="#28324c" stroke-width="1.4"/>
+  <text x="645" y="120" fill="#e7ebf5" font-size="14" font-weight="700" letter-spacing="1.2" text-anchor="middle">STARTUP MANAGER CORE</text>
+
+  <!-- GLITCH FILTER BOX -->
+  <rect x="290" y="150" width="150" height="410" rx="8" fill="#151d30" stroke="#38507a" stroke-width="1.3"/>
+  <text x="365" y="185" fill="#eef2fa" font-size="12.5" font-weight="700" text-anchor="middle">GLITCH FILTER</text>
+  <text x="365" y="202" fill="#eef2fa" font-size="12.5" font-weight="700" text-anchor="middle">&amp; DEBOUNCE UNIT</text>
+  <!-- simple pulse icon -->
+  <polyline points="320,240 320,225 335,225 335,255 350,255 350,225 365,225 365,255 380,255 380,225 410,225" fill="none" stroke="#4fb2e8" stroke-width="1.6" stroke-linejoin="round"/>
+  <text x="365" y="540" fill="#8593ac" font-size="10.5" text-anchor="middle">Debounces raw inputs</text>
+  <text x="365" y="555" fill="#8593ac" font-size="10.5" text-anchor="middle">before pipeline entry</text>
+
+  <!-- TIMER PIPELINE UNIT -->
+  <rect x="470" y="150" width="180" height="410" rx="8" fill="none" stroke="#28324c" stroke-width="1"/>
+  <text x="560" y="175" fill="#eef2fa" font-size="12.5" font-weight="700" text-anchor="middle">TIMER PIPELINE UNIT</text>
+
+  <!-- 5 timer sub-boxes -->
+  <g font-size="12" font-weight="600" fill="#dbe4f5">
+    <rect x="485" y="192" width="150" height="46" rx="6" fill="#1a2338" stroke="#e0a341" stroke-width="1.2"/>
+    <text x="560" y="220" text-anchor="middle">T_FILTER</text>
+    <line x1="560" y1="238" x2="560" y2="254" stroke="#e0a341" stroke-width="1.4" marker-end="url(#ah-amber)"/>
+
+    <rect x="485" y="254" width="150" height="46" rx="6" fill="#1a2338" stroke="#e0a341" stroke-width="1.2"/>
+    <text x="560" y="282" text-anchor="middle">T_PWR_STABLE</text>
+    <line x1="560" y1="300" x2="560" y2="316" stroke="#e0a341" stroke-width="1.4" marker-end="url(#ah-amber)"/>
+
+    <rect x="485" y="316" width="150" height="46" rx="6" fill="#1a2338" stroke="#e0a341" stroke-width="1.2"/>
+    <text x="560" y="344" text-anchor="middle">T_IO_RISE</text>
+    <line x1="560" y1="362" x2="560" y2="378" stroke="#e0a341" stroke-width="1.4" marker-end="url(#ah-amber)"/>
+
+    <rect x="485" y="378" width="150" height="46" rx="6" fill="#1a2338" stroke="#e0a341" stroke-width="1.2"/>
+    <text x="560" y="406" text-anchor="middle">T_AUX_RISE</text>
+    <line x1="560" y1="424" x2="560" y2="440" stroke="#e0a341" stroke-width="1.4" marker-end="url(#ah-amber)"/>
+
+    <rect x="485" y="440" width="150" height="46" rx="6" fill="#1a2338" stroke="#e0a341" stroke-width="1.2"/>
+    <text x="560" y="468" text-anchor="middle">T_MCU_BOOT</text>
+  </g>
+
+  <!-- 7-STATE FSM -->
+  <rect x="690" y="150" width="210" height="410" rx="8" fill="none" stroke="#28324c" stroke-width="1"/>
+  <text x="795" y="175" fill="#eef2fa" font-size="12.5" font-weight="700" text-anchor="middle">7-STATE FSM</text>
+
+  <g font-size="11.8" font-weight="600" fill="#dbe4f5">
+    <rect x="705" y="192" width="180" height="41" rx="6" fill="#1a2338" stroke="#4fb2e8" stroke-width="1.2"/>
+    <text x="795" y="217" text-anchor="middle">RESET</text>
+    <line x1="795" y1="233" x2="795" y2="247" stroke="#4fb2e8" stroke-width="1.4" marker-end="url(#ah-blue)"/>
+
+    <rect x="705" y="247" width="180" height="41" rx="6" fill="#1a2338" stroke="#4fb2e8" stroke-width="1.2"/>
+    <text x="795" y="272" text-anchor="middle">GLITCH FILTER</text>
+    <line x1="795" y1="288" x2="795" y2="302" stroke="#4fb2e8" stroke-width="1.4" marker-end="url(#ah-blue)"/>
+
+    <rect x="705" y="302" width="180" height="41" rx="6" fill="#1a2338" stroke="#4fb2e8" stroke-width="1.2"/>
+    <text x="795" y="327" text-anchor="middle">TIMER PIPELINE</text>
+    <line x1="795" y1="343" x2="795" y2="357" stroke="#4fb2e8" stroke-width="1.4" marker-end="url(#ah-blue)"/>
+
+    <rect x="705" y="357" width="180" height="41" rx="6" fill="#1a2338" stroke="#4fb2e8" stroke-width="1.2"/>
+    <text x="795" y="382" text-anchor="middle">POWER UP SEQ</text>
+    <line x1="795" y1="398" x2="795" y2="412" stroke="#4fb2e8" stroke-width="1.4" marker-end="url(#ah-blue)"/>
+
+    <rect x="705" y="412" width="180" height="41" rx="6" fill="#1a2338" stroke="#4fb2e8" stroke-width="1.2"/>
+    <text x="795" y="437" text-anchor="middle">MONITOR</text>
+    <line x1="795" y1="453" x2="795" y2="467" stroke="#4fb2e8" stroke-width="1.4" marker-end="url(#ah-blue)"/>
+
+    <rect x="705" y="467" width="180" height="41" rx="6" fill="#1a2338" stroke="#4fb2e8" stroke-width="1.2"/>
+    <text x="795" y="492" text-anchor="middle">RUN</text>
+    <line x1="795" y1="508" x2="795" y2="522" stroke="#4fb2e8" stroke-width="1.4" marker-end="url(#ah-blue)"/>
+
+    <rect x="705" y="522" width="180" height="41" rx="6" fill="#1a2338" stroke="#4fb2e8" stroke-width="1.2"/>
+    <text x="795" y="547" text-anchor="middle">RETRY</text>
+  </g>
+
+  <!-- RETRY -> MONITOR loop (fault recovery) -->
+  <path d="M 885,542 L 925,542 L 925,432 L 885,432" fill="none" stroke="#e0a341" stroke-width="1.5" marker-end="url(#ah-amber)"/>
+  <text x="932" y="490" fill="#8593ac" font-size="9.5" text-anchor="start" transform="rotate(90 932 490)">RETRY &#8594; MONITOR</text>
+
+  <!-- Main pipeline flow: GF -> Timer -> FSM -->
+  <line x1="440" y1="355" x2="468" y2="355" stroke="#8b96ab" stroke-width="1.6" marker-end="url(#ah-gray)"/>
+  <line x1="650" y1="355" x2="688" y2="355" stroke="#8b96ab" stroke-width="1.6" marker-end="url(#ah-gray)"/>
+
+  <!-- ============ WATCHDOG & MONITORING SYSTEM ============ -->
+  <rect x="290" y="590" width="370" height="150" rx="8" fill="#151d30" stroke="#28324c" stroke-width="1.2"/>
+  <text x="475" y="613" fill="#eef2fa" font-size="12.5" font-weight="700" text-anchor="middle">WATCHDOG &amp; MONITORING SYSTEM</text>
+
+  <rect x="310" y="626" width="330" height="46" rx="6" fill="#1a2338" stroke="#4fb2e8" stroke-width="1.2"/>
+  <text x="330" y="654" fill="#dbe4f5" font-size="12" font-weight="600">8-BIT WATCHDOG</text>
+  <text x="590" y="654" fill="#6d7ba0" font-size="9.5" text-anchor="end">bits B10, B11, B12&#8230;</text>
+
+  <rect x="310" y="682" width="330" height="46" rx="6" fill="#1a2338" stroke="#4fb2e8" stroke-width="1.2"/>
+  <text x="330" y="710" fill="#dbe4f5" font-size="12" font-weight="600">VOLTAGE / CURRENT (V/I) MONITOR</text>
+
+  <!-- watchdog -> FSM monitor tap -->
+  <path d="M 475,590 L 475,570 L 700,570 L 700,555" fill="none" stroke="#4fb2e8" stroke-width="1.4" stroke-dasharray="4 3" marker-end="url(#ah-blue)"/>
+
+  <!-- ============ 3-STRIKE RETRY COUNTER ============ -->
+  <rect x="700" y="605" width="180" height="100" rx="8" fill="#1a2338" stroke="#e0a341" stroke-width="1.3"/>
+  <text x="790" y="648" fill="#eef2fa" font-size="12.5" font-weight="700" text-anchor="middle">3-STRIKE</text>
+  <text x="790" y="666" fill="#eef2fa" font-size="12.5" font-weight="700" text-anchor="middle">RETRY COUNTER</text>
+
+  <!-- watchdog + monitor -> retry counter -->
+  <path d="M 640,649 L 670,649 L 670,635 L 698,635" fill="none" stroke="#4fb2e8" stroke-width="1.4" marker-end="url(#ah-blue)"/>
+  <path d="M 640,705 L 670,705 L 670,675 L 698,675" fill="none" stroke="#4fb2e8" stroke-width="1.4" marker-end="url(#ah-blue)"/>
+
+  <!-- retry counter -> RETRY state -->
+  <path d="M 790,605 L 790,563" fill="none" stroke="#e0a341" stroke-width="1.6" marker-end="url(#ah-amber)"/>
+
+  <!-- retry counter -> Power Management (lockout_active) -->
+  <path d="M 880,640 L 1000,640 L 1000,430 L 1050,430" fill="none" stroke="#e0a341" stroke-width="1.4" stroke-dasharray="4 3" marker-end="url(#ah-amber)"/>
+  <text x="1005" y="600" fill="#8593ac" font-size="9.5" text-anchor="middle">lockout_active</text>
+
+  <!-- ============ POWER MANAGEMENT & SEQUENCING ============ -->
+  <rect x="1060" y="280" width="190" height="300" rx="10" fill="#151d30" stroke="#38507a" stroke-width="1.3"/>
+  <text x="1155" y="315" fill="#eef2fa" font-size="12.5" font-weight="700" text-anchor="middle">POWER MANAGEMENT</text>
+  <text x="1155" y="332" fill="#eef2fa" font-size="12.5" font-weight="700" text-anchor="middle">&amp; SEQUENCING</text>
+  <!-- simple gear icon -->
+  <circle cx="1155" cy="400" r="26" fill="none" stroke="#e0a341" stroke-width="2"/>
+  <circle cx="1155" cy="400" r="9" fill="none" stroke="#e0a341" stroke-width="2"/>
+  <g stroke="#e0a341" stroke-width="2.4">
+    <line x1="1155" y1="366" x2="1155" y2="376"/>
+    <line x1="1155" y1="424" x2="1155" y2="434"/>
+    <line x1="1121" y1="400" x2="1131" y2="400"/>
+    <line x1="1179" y1="400" x2="1189" y2="400"/>
+    <line x1="1131" y1="376" x2="1138" y2="383"/>
+    <line x1="1172" y1="417" x2="1179" y2="424"/>
+    <line x1="1179" y1="376" x2="1172" y2="383"/>
+    <line x1="1138" y1="417" x2="1131" y2="424"/>
+  </g>
+  <text x="1155" y="545" fill="#8593ac" font-size="10.5" text-anchor="middle">Sequences and gates</text>
+  <text x="1155" y="560" fill="#8593ac" font-size="10.5" text-anchor="middle">all downstream rails</text>
+
+  <!-- FSM -> Power Management -->
+  <line x1="900" y1="355" x2="1058" y2="355" stroke="#8b96ab" stroke-width="1.6" marker-end="url(#ah-gray)"/>
+
+  <!-- ============ MULTI-RAIL POWER OUTPUTS ============ -->
+  <text x="1390" y="112" fill="#7c8aa5" font-size="11" font-weight="700" letter-spacing="1.4" text-anchor="middle">MULTI-RAIL POWER OUTPUTS</text>
+
+  <line x1="1250" y1="310" x2="1310" y2="310" stroke="#e0a341" stroke-width="1.6" marker-end="url(#ah-amber)"/>
+  <text x="1320" y="314" fill="#c9d3e5" font-size="12.5" font-weight="600">MAIN VBAT (12V)</text>
+
+  <line x1="1250" y1="378" x2="1310" y2="378" stroke="#4fb2e8" stroke-width="1.6" marker-end="url(#ah-blue)"/>
+  <text x="1320" y="376" fill="#c9d3e5" font-size="12.5" font-weight="600">IO VOLTAGE</text>
+  <text x="1320" y="391" fill="#8593ac" font-size="10.5">(e.g., 3.3V / 1.8V)</text>
+
+  <line x1="1250" y1="446" x2="1310" y2="446" stroke="#e0a341" stroke-width="1.6" marker-end="url(#ah-amber)"/>
+  <text x="1320" y="444" fill="#c9d3e5" font-size="12.5" font-weight="600">AUXILIARY POWER</text>
+  <text x="1320" y="459" fill="#8593ac" font-size="10.5">(e.g., 5V)</text>
+
+  <line x1="1250" y1="514" x2="1310" y2="514" stroke="#8b96ab" stroke-width="1.6" marker-end="url(#ah-gray)"/>
+  <text x="1320" y="518" fill="#c9d3e5" font-size="12.5" font-weight="600">MCU RESET SIGNAL</text>
+
+  <!-- FOOTER -->
+  <line x1="40" y1="782" x2="1460" y2="782" stroke="#1e2740" stroke-width="1"/>
+  <text x="40" y="802" fill="#5c6987" font-size="10.5">Automotive ECU Power &amp; Startup Manager ASIC IP</text>
+  <text x="1460" y="802" fill="#5c6987" font-size="10.5" text-anchor="end">Micro-Architecture &#8226; Rev. 1.0</text>
+</svg>
