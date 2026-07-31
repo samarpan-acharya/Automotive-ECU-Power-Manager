@@ -1,0 +1,217 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="ah-gray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8b96ab"/>
+    </marker>
+    <marker id="ah-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#4fb2e8"/>
+    </marker>
+    <marker id="ah-amber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#e0a341"/>
+    </marker>
+    <marker id="ah-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#f47066"/>
+    </marker>
+    <marker id="ah-purple" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#b79bf5"/>
+    </marker>
+  </defs>
+
+  <!-- BACKGROUND -->
+  <rect x="0" y="0" width="1600" height="900" fill="#0b0f19"/>
+
+  <!-- TITLE -->
+  <text x="40" y="34" fill="#f4f6fb" font-size="21" font-weight="700" letter-spacing="0.5">7-STATE FSM CONTROLLER &#8212; SIGNAL &amp; BUS MAP</text>
+  <text x="40" y="55" fill="#7c8aa5" font-size="12" font-weight="600" letter-spacing="1.8">CONTROL PATH / DATA PATH INTERFACE</text>
+  <line x1="40" y1="70" x2="1560" y2="70" stroke="#1e2740" stroke-width="1"/>
+
+  <!-- ================= CONTROL PATH (LEFT) ================= -->
+
+  <!-- top input signals -->
+  <g font-size="11.5" font-weight="600" fill="#c9d3e5">
+    <text x="196" y="170" text-anchor="start" transform="rotate(-90 196 170)">CLK</text>
+    <line x1="200" y1="176" x2="200" y2="188" stroke="#4fb2e8" stroke-width="1.4" marker-end="url(#ah-blue)"/>
+
+    <text x="234" y="170" text-anchor="start" transform="rotate(-90 234 170)">RST_N</text>
+    <line x1="238" y1="176" x2="238" y2="188" stroke="#4fb2e8" stroke-width="1.4" marker-end="url(#ah-blue)"/>
+
+    <text x="272" y="170" text-anchor="start" transform="rotate(-90 272 170)">SYSTEM_ENABLE</text>
+    <line x1="276" y1="176" x2="276" y2="188" stroke="#4fb2e8" stroke-width="1.4" marker-end="url(#ah-blue)"/>
+
+    <text x="310" y="170" text-anchor="start" transform="rotate(-90 310 170)">ACTOR_PATT</text>
+    <line x1="314" y1="176" x2="314" y2="188" stroke="#4fb2e8" stroke-width="1.4" marker-end="url(#ah-blue)"/>
+
+    <text x="348" y="170" text-anchor="start" transform="rotate(-90 348 170)">FILTER_DONE</text>
+    <line x1="352" y1="176" x2="352" y2="188" stroke="#4fb2e8" stroke-width="1.4" marker-end="url(#ah-blue)"/>
+
+    <text x="386" y="170" text-anchor="start" transform="rotate(-90 386 170)">TIMER_DONE</text>
+    <line x1="390" y1="176" x2="390" y2="188" stroke="#4fb2e8" stroke-width="1.4" marker-end="url(#ah-blue)"/>
+
+    <text x="424" y="170" text-anchor="start" transform="rotate(-90 424 170)">RETRY_MAX</text>
+    <line x1="428" y1="176" x2="428" y2="188" stroke="#4fb2e8" stroke-width="1.4" marker-end="url(#ah-blue)"/>
+
+    <text x="462" y="170" text-anchor="start" transform="rotate(-90 462 170)">WDT_TIMEOUT</text>
+    <line x1="466" y1="176" x2="466" y2="188" stroke="#4fb2e8" stroke-width="1.4" marker-end="url(#ah-blue)"/>
+  </g>
+
+  <!-- FSM outer box -->
+  <rect x="170" y="190" width="330" height="430" rx="10" fill="#151d30" stroke="#e0a341" stroke-width="1.5"/>
+  <text x="335" y="220" fill="#eef2fa" font-size="15" font-weight="700" text-anchor="middle" letter-spacing="0.5">7-STATE FSM</text>
+
+  <!-- FILTERED_DATA input -->
+  <text x="30" y="263" fill="#c9d3e5" font-size="12.5" font-weight="600">FILTERED_DATA</text>
+  <line x1="140" y1="258" x2="168" y2="258" stroke="#4fb2e8" stroke-width="1.6" marker-end="url(#ah-blue)"/>
+
+  <!-- state sub-boxes -->
+  <g font-size="12.5" font-weight="600" fill="#eef2fa">
+    <rect x="190" y="235" width="290" height="48" rx="6" fill="#1a2338" stroke="#3a4664" stroke-width="1.1"/>
+    <text x="220" y="264">IDLE</text>
+    <line x1="500" y1="259" x2="486" y2="259" stroke="#e0a341" stroke-width="1.8" marker-end="url(#ah-amber)"/>
+
+    <rect x="190" y="291" width="290" height="48" rx="6" fill="#1a2338" stroke="#3a4664" stroke-width="1.1"/>
+    <text x="220" y="320">WAIT_FILTER</text>
+    <line x1="500" y1="315" x2="486" y2="315" stroke="#e0a341" stroke-width="1.8" marker-end="url(#ah-amber)"/>
+
+    <rect x="190" y="347" width="290" height="48" rx="6" fill="#1a2338" stroke="#3a4664" stroke-width="1.1"/>
+    <text x="220" y="376">TIMER_START</text>
+    <line x1="500" y1="371" x2="486" y2="371" stroke="#e0a341" stroke-width="1.8" marker-end="url(#ah-amber)"/>
+
+    <rect x="190" y="403" width="290" height="48" rx="6" fill="#1a2338" stroke="#3a4664" stroke-width="1.1"/>
+    <text x="220" y="432">CHK_RETRY</text>
+    <line x1="500" y1="427" x2="486" y2="427" stroke="#e0a341" stroke-width="1.8" marker-end="url(#ah-amber)"/>
+
+    <rect x="190" y="459" width="290" height="48" rx="6" fill="#1a2338" stroke="#3a4664" stroke-width="1.1"/>
+    <text x="220" y="488">FAULT</text>
+    <line x1="500" y1="483" x2="486" y2="483" stroke="#e0a341" stroke-width="1.8" marker-end="url(#ah-amber)"/>
+
+    <rect x="190" y="515" width="290" height="48" rx="6" fill="#1a2338" stroke="#3a4664" stroke-width="1.1"/>
+    <text x="220" y="544">LOG</text>
+    <line x1="500" y1="539" x2="486" y2="539" stroke="#e0a341" stroke-width="1.8" marker-end="url(#ah-amber)"/>
+
+    <rect x="190" y="571" width="290" height="48" rx="6" fill="#1a2338" stroke="#3a4664" stroke-width="1.1"/>
+    <text x="220" y="600">RESET</text>
+    <line x1="500" y1="595" x2="486" y2="595" stroke="#e0a341" stroke-width="1.8" marker-end="url(#ah-amber)"/>
+  </g>
+
+  <!-- FAULT -> LOG loop -->
+  <path d="M 190,483 L 176,483 L 176,539 L 188,539" fill="none" stroke="#e0a341" stroke-width="1.5" marker-end="url(#ah-amber)"/>
+
+  <text x="335" y="875" fill="#7c8aa5" font-size="13" font-weight="700" text-anchor="middle" letter-spacing="1.6">CONTROL PATH</text>
+
+  <!-- divider -->
+  <line x1="650" y1="90" x2="650" y2="850" stroke="#3a4560" stroke-width="1.4" stroke-dasharray="2 4"/>
+
+  <!-- ================= CONTROL SIGNALS COLUMN ================= -->
+  <text x="705" y="205" fill="#4fb2e8" font-size="12.5" font-weight="700" text-anchor="middle">Control Signals</text>
+
+  <g font-size="11.5" font-weight="600" fill="#a9b6cf">
+    <text x="480" y="296">FILTER_EN</text>
+    <line x1="480" y1="300" x2="760" y2="300" stroke="#4fb2e8" stroke-width="1.3"/>
+
+    <text x="480" y="331">LATCH_FAULT</text>
+    <line x1="480" y1="335" x2="760" y2="335" stroke="#4fb2e8" stroke-width="1.3"/>
+
+    <text x="480" y="366">COUNT_WDT</text>
+    <line x1="480" y1="370" x2="760" y2="370" stroke="#4fb2e8" stroke-width="1.3"/>
+
+    <text x="480" y="401">COUNT_RETRY</text>
+    <line x1="480" y1="405" x2="760" y2="405" stroke="#4fb2e8" stroke-width="1.3"/>
+
+    <text x="480" y="436">COUNT_RETRY</text>
+    <line x1="480" y1="440" x2="760" y2="440" stroke="#4fb2e8" stroke-width="1.3"/>
+
+    <text x="480" y="471">TIMER_CONF[1:0]</text>
+    <line x1="480" y1="475" x2="760" y2="475" stroke="#4fb2e8" stroke-width="1.3"/>
+  </g>
+
+  <!-- watchdog bus merge: FILTER_EN, LATCH_FAULT, COUNT_WDT -> watchdog row y=320 -->
+  <line x1="760" y1="300" x2="760" y2="320" stroke="#4fb2e8" stroke-width="1.3"/>
+  <line x1="760" y1="335" x2="760" y2="320" stroke="#4fb2e8" stroke-width="1.3"/>
+  <line x1="760" y1="370" x2="760" y2="320" stroke="#4fb2e8" stroke-width="1.3"/>
+  <line x1="760" y1="320" x2="898" y2="320" stroke="#4fb2e8" stroke-width="1.8" marker-end="url(#ah-blue)"/>
+  <text x="825" y="313" fill="#c9d3e5" font-size="11" font-weight="700" text-anchor="middle">CONTROL BUS</text>
+
+  <!-- retry bus merge: COUNT_RETRY x2 -> retry row y=420 -->
+  <line x1="760" y1="405" x2="760" y2="420" stroke="#4fb2e8" stroke-width="1.3"/>
+  <line x1="760" y1="440" x2="760" y2="420" stroke="#4fb2e8" stroke-width="1.3"/>
+  <line x1="760" y1="420" x2="898" y2="420" stroke="#4fb2e8" stroke-width="1.8" marker-end="url(#ah-blue)"/>
+  <text x="808" y="413" fill="#c9d3e5" font-size="11" font-weight="700" text-anchor="middle">16-BIT</text>
+
+  <!-- timer bus: TIMER_CONF -> timer row y=520 -->
+  <line x1="760" y1="475" x2="760" y2="520" stroke="#4fb2e8" stroke-width="1.3"/>
+  <line x1="760" y1="520" x2="898" y2="520" stroke="#4fb2e8" stroke-width="1.8" marker-end="url(#ah-blue)"/>
+  <text x="825" y="513" fill="#c9d3e5" font-size="11" font-weight="700" text-anchor="middle">CONTROL BUS</text>
+
+  <!-- ERROR bidirectional (stays within control column) -->
+  <line x1="500" y1="483" x2="700" y2="483" stroke="#f47066" stroke-width="1.4" marker-start="url(#ah-red)" marker-end="url(#ah-red)"/>
+  <text x="600" y="475" fill="#f0a29b" font-size="11" font-weight="700" text-anchor="middle">ERROR</text>
+
+  <!-- ERROR_DETECTED long bidirectional crossing divider -->
+  <line x1="500" y1="595" x2="898" y2="595" stroke="#f47066" stroke-width="1.6" marker-start="url(#ah-red)" marker-end="url(#ah-red)"/>
+  <text x="700" y="587" fill="#f0a29b" font-size="11.5" font-weight="700" text-anchor="middle">ERROR_DETECTED</text>
+  <text x="740" y="608" fill="#8593ac" font-size="10">[15:0]</text>
+
+  <!-- ================= DATA PATH (RIGHT) ================= -->
+  <text x="1050" y="125" fill="#c9d3e5" font-size="12.5" font-weight="600" text-anchor="middle">16-BIT BUS [i]</text>
+  <line x1="1050" y1="132" x2="1050" y2="188" stroke="#4fb2e8" stroke-width="1.6" marker-end="url(#ah-blue)"/>
+
+  <!-- Glitch Filter -->
+  <rect x="900" y="190" width="300" height="70" rx="8" fill="#17304f" stroke="#4fb2e8" stroke-width="1.4"/>
+  <text x="1050" y="231" fill="#f4f6fb" font-size="14" font-weight="700" text-anchor="middle">16-BIT GLITCH FILTER</text>
+
+  <text x="800" y="221" fill="#c9d3e5" font-size="12.5" font-weight="600" text-anchor="end">SIGNAL_IN[15:0]</text>
+  <line x1="810" y1="226" x2="898" y2="226" stroke="#4fb2e8" stroke-width="1.6" marker-end="url(#ah-blue)"/>
+
+  <line x1="1202" y1="226" x2="1262" y2="226" stroke="#e0a341" stroke-width="1.8" marker-end="url(#ah-amber)"/>
+  <text x="1272" y="221" fill="#c9d3e5" font-size="12.5" font-weight="600">FILTERED_DATA</text>
+
+  <text x="1010" y="277" fill="#c9d3e5" font-size="11.5" font-weight="600">16-BIT BUS [15:0]</text>
+  <line x1="1050" y1="260" x2="1050" y2="292" stroke="#e0a341" stroke-width="2.2" marker-end="url(#ah-amber)"/>
+
+  <!-- Watchdog Counter -->
+  <rect x="900" y="292" width="300" height="80" rx="8" fill="#123423" stroke="#34d399" stroke-width="1.4"/>
+  <text x="1050" y="327" fill="#f4f6fb" font-size="14" font-weight="700" text-anchor="middle">8-BIT WATCHDOG</text>
+  <text x="1050" y="345" fill="#f4f6fb" font-size="14" font-weight="700" text-anchor="middle">COUNTER</text>
+
+  <line x1="1262" y1="332" x2="1202" y2="332" stroke="#4fb2e8" stroke-width="1.6" marker-end="url(#ah-blue)"/>
+  <text x="1272" y="327" fill="#c9d3e5" font-size="12.5" font-weight="600">WDT_TIMEOUT</text>
+
+  <!-- Retry Counter -->
+  <rect x="900" y="392" width="300" height="80" rx="8" fill="#3a3010" stroke="#eab308" stroke-width="1.4"/>
+  <text x="1050" y="427" fill="#f4f6fb" font-size="14" font-weight="700" text-anchor="middle">3-STRIKE</text>
+  <text x="1050" y="445" fill="#f4f6fb" font-size="14" font-weight="700" text-anchor="middle">RETRY COUNTER</text>
+
+  <line x1="1202" y1="432" x2="1262" y2="432" stroke="#e0a341" stroke-width="1.8" marker-start="url(#ah-amber)" marker-end="url(#ah-amber)"/>
+  <text x="1272" y="427" fill="#c9d3e5" font-size="12.5" font-weight="600">RETRY_COUNT[1:0]</text>
+
+  <!-- Timer Unit -->
+  <rect x="900" y="492" width="300" height="80" rx="8" fill="#2a1a4a" stroke="#b79bf5" stroke-width="1.4"/>
+  <text x="1050" y="527" fill="#f4f6fb" font-size="14" font-weight="700" text-anchor="middle">10MS/50MS</text>
+  <text x="1050" y="545" fill="#f4f6fb" font-size="14" font-weight="700" text-anchor="middle">HARDWARE TIMER UNIT</text>
+
+  <line x1="1202" y1="532" x2="1262" y2="532" stroke="#b79bf5" stroke-width="1.8" marker-end="url(#ah-purple)"/>
+  <text x="1272" y="527" fill="#c9d3e5" font-size="12.5" font-weight="600">TIMER_DONE</text>
+
+  <!-- big vertical FAULT_CODE arrow: timer unit -> fault log -->
+  <text x="815" y="600" fill="#c9d3e5" font-size="12.5" font-weight="600" text-anchor="end">FAULT_CODE</text>
+  <line x1="1050" y1="572" x2="1050" y2="602" stroke="#e0a341" stroke-width="2.4" marker-end="url(#ah-amber)"/>
+  <line x1="825" y1="600" x2="1050" y2="600" stroke="#e0a341" stroke-width="1.6"/>
+
+  <!-- Fault Code Log Register -->
+  <rect x="900" y="602" width="300" height="100" rx="8" fill="#3a1414" stroke="#f47066" stroke-width="1.4"/>
+  <text x="1050" y="637" fill="#f4f6fb" font-size="14" font-weight="700" text-anchor="middle">FAULT CODE</text>
+  <text x="1050" y="655" fill="#f4f6fb" font-size="14" font-weight="700" text-anchor="middle">LOG REGISTER</text>
+
+  <line x1="1202" y1="627" x2="1262" y2="627" stroke="#e0a341" stroke-width="1.8" marker-end="url(#ah-amber)"/>
+  <text x="1272" y="622" fill="#c9d3e5" font-size="12.5" font-weight="600">LOG_STATUS[3:0]</text>
+
+  <line x1="1202" y1="672" x2="1262" y2="672" stroke="#f47066" stroke-width="1.8" marker-start="url(#ah-red)" marker-end="url(#ah-red)"/>
+  <text x="1272" y="667" fill="#c9d3e5" font-size="12.5" font-weight="600">FAULT_BUS[15:0]</text>
+
+  <text x="1050" y="875" fill="#7c8aa5" font-size="13" font-weight="700" text-anchor="middle" letter-spacing="1.6">DATA PATH</text>
+
+  <!-- FOOTER -->
+  <line x1="40" y1="852" x2="1560" y2="852" stroke="#1e2740" stroke-width="1"/>
+  <text x="40" y="874" fill="#5c6987" font-size="10.5">Automotive ECU Power &amp; Startup Manager ASIC IP</text>
+  <text x="1560" y="874" fill="#5c6987" font-size="10.5" text-anchor="end">FSM Controller &#8226; Rev. 1.0</text>
+</svg>
