@@ -1,8 +1,8 @@
 # Automotive ECU Power & Startup Manager IP
 
 ![Verilog](https://img.shields.io/badge/HDL-Verilog-blue?style=flat-square)
-![Vivado](https://img.shields.io/badge/Tool-Xilinx%20Vivado%202022.2-orange?style=flat-square)
-![Target](https://img.shields.io/badge/Target-Artix--7%20(xc7a35tcpg236--1)-informational?style=flat-square)
+![Vivado](https://img.shields.io/badge/Tool-Xilinx%20Vivado%202026.1-orange?style=flat-square)
+![Target](https://img.shields.io/badge/Target-Artix--7%20(xc7v585tffg1761--3)-informational?style=flat-square)
 ![Timing](https://img.shields.io/badge/Timing-100%20MHz%20closed-brightgreen?style=flat-square)
 ![License](https://img.shields.io/badge/License-MIT-lightgrey?style=flat-square)
 
@@ -40,7 +40,7 @@ Automotive ECUs power up under some genuinely nasty conditions — cranking sags
 
 This project is a self-contained IP block that handles that problem in hardware, before it ever reaches the MCU. Raw ignition/wake-up/VBAT inputs are debounced, run through a timed power-up pipeline, and sequenced through a 7-state FSM that gates the downstream rails one at a time. A watchdog and a 3-strike retry counter sit on top of that, so a transient fault triggers a bounded retry instead of an infinite reset loop, and a genuinely bad fault trips a safe-state lockout instead of leaving the rails in an undefined condition.
 
-It was built and verified in Vivado 2022.2 targeting an Artix-7 (`xc7a35tcpg236-1`) as the synthesis/STA vehicle — the RTL itself is written to be technology-agnostic, since the actual deployment target for this class of IP is an ASIC flow.
+It was built and verified in Vivado 2026.1 targeting an Virtex-7 (`xc7v585tffg1761-3`) as the synthesis/STA vehicle — the RTL itself is written to be technology-agnostic, since the actual deployment target for this class of IP is an ASIC flow.
 
 ---
 
@@ -135,7 +135,7 @@ Simulation was run with a `test_case_num` field driving directed test cases (val
 
 ## Synthesis & Resource Utilization
 
-Synthesized in Vivado 2022.2, targeting `xc7a35tcpg236-1` (Artix-7), design top `ecu_pwr_top`.
+Synthesized in Vivado 2026.1, targeting `xc7v585tffg1761-3` (Virtex-7), design top `ecu_pwr_top`.
 
 | Resource | Used | Available | Utilization |
 |---|---|---|---|
@@ -188,12 +188,12 @@ The critical path runs from a bit in the timer pipeline's counter, through the `
 
 ```text
 Automotive-ECU-Power-Startup-Manager-IP/
-├── reports/        # Timing, utilization, and architecture/signal-map diagrams
-├── rtl/             # Synthesizable Verilog source
-├── scratch/         # Working/scratch files
-├── tb/              # Testbenches
-├── waveform/        # Simulation waveform captures
-├── LICENSE           # MIT License
+├── reports/        
+├── rtl/             
+├── scratch/         
+├── tb/              
+├── waveform/        
+├── LICENSE           
 └── README.md
 ```
 
@@ -202,21 +202,21 @@ Automotive-ECU-Power-Startup-Manager-IP/
 ## Tools Used
 
 - **Verilog HDL** — RTL and testbench implementation.
-- **Xilinx Vivado 2022.2**:
+- **Xilinx Vivado 2026.1**:
   - Vivado Simulator (XSim) — behavioral simulation and waveform debugging.
   - Vivado Synthesis — RTL to gate-level netlist.
   - Vivado Timing Analyzer — Static Timing Analysis and slack reporting.
   - Vivado Report Utilization — LUT/FF/IOB resource accounting.
-- **Target device:** Xilinx Artix-7, `xc7a35tcpg236-1` (used as the synthesis/STA vehicle for this ASIC-oriented IP).
+- **Target device:** Xilinx Virtex-7, `xc7v585tffg1761-3` (used as the synthesis/STA vehicle for this ASIC-oriented IP).
 
 ---
 
 ## How to Run
 
-1. Clone the repository and open Vivado 2022.2 (or later).
+1. Clone the repository and open Vivado 2026.1 (or later).
 2. Add the sources under `rtl/` as design sources and the files under `tb/` as simulation sources.
 3. Run behavioral simulation (XSim) against the testbench in `tb/` to reproduce the waveform in `waveform/waveform_acu.png`.
-4. Run synthesis on `ecu_pwr_top`, targeting `xc7a35tcpg236-1` (or your own Artix-7 part).
+4. Run synthesis on `ecu_pwr_top`, targeting `xc7a35tcpg236-1` (or your own Virtex-7 part).
 5. Run `report_timing_summary` and `report_utilization` to reproduce the numbers in `reports/timing_report.txt` and `reports/utilization_report.txt`.
 
 ---
@@ -237,5 +237,5 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
 
 ## Author
 
-**Samarpan Acharya**\\
+**Samarpan Acharya**
 **B.Tech. (ECE) - NIT ROURKELA**
