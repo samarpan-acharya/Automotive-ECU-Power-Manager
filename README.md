@@ -9,7 +9,7 @@
 A synthesizable Verilog IP that manages power-up sequencing, brown-out filtering, and fault recovery for multi-rail automotive ECUs. Everything — the debounce stage, the timer pipeline, the sequencing FSM, and the watchdog/retry logic — is built to run off a single system clock and reset, with no vendor primitives, no BRAM, and no DSP blocks in the critical path.
 
 <p align="center">
-<img src="reports/architecture.png" width="850">
+<img src="scratch/architecture.png" width="850">
 </p>
 <p align="center"><i>Top-level micro-architecture — external sense inputs, glitch filtering, timer pipeline, 7-state FSM, and multi-rail power sequencing</i></p>
 
@@ -60,7 +60,7 @@ It was built and verified in Vivado 2022.2 targeting an Artix-7 (`xc7a35tcpg236-
 ## Architecture
 
 <p align="center">
-<img src="reports/fsm_signal_map.png" width="850">
+<img src="scratch/fsm_signal_map.png" width="850">
 </p>
 <p align="center"><i>FSM ↔ data-path signal and bus map — control-path connections from the FSM into the glitch filter, watchdog, retry counter, timer unit, and fault log register</i></p>
 
@@ -238,5 +238,4 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
 ## Author
 
 **Samarpan Acharya**
-**B.tech.( ECE ) NIT ROURKELA**
-[GitHub](https://github.com/samarpan-acharya)
+**B.Tech. (ECE) - NIT ROURKELA**
